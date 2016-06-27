@@ -6,14 +6,14 @@
 }
 
 .plates-container {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  @include display(flex);
+  @include justify-content(flex-start);
+  @include flex-wrap(wrap);
 }
 
 .month-card {
-  flex-basis: 1;
-  flex-grow: 1;
+  @include flex-basis(1);
+  @include flex-grow(1);
   width: 25%;
   height: 300px;
   text-align: center;
@@ -33,10 +33,16 @@ small {
   margin-top: $largeSpacing;
 }
 
+.charts {
+  @include display(flex);
+  @include justify-content(space-between);
+  @include flex-wrap(wrap);
+}
+
 .plates-graph {
   padding-bottom: $mediumSpacing;
   margin-bottom: $largeSpacing;
-  width: 25%;
+  width: 33%;
   max-width: 400px;
 
   h3 {
@@ -44,10 +50,32 @@ small {
   }
 }
 
-svg.frequency-by-month-chart rect {
-  fill: aqua;
+svg.frequency-by-month-chart {
+  rect {
+    fill: aqua;
+    &:hover {
+      fill: #00F0F0;
+    }
+  }
+  text {
+    fill: fuchsia;
+  }
+  .domain {
+    fill: #ffffff;
+  }
 }
 
-svg.frequency-by-month-chart text {
-  fill: fuchsia;
+.axis {
+  font-size: $smallFont;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: fuchsia;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
 }

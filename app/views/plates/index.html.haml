@@ -1,1 +1,10 @@
-%h1 hello
+%h1 Rejected Plates
+- @plates.group_by_date.each do |month, plate_collection|
+  %h2= "#{month} (#{plate_collection.size} total plates)"
+  %ul
+    - plate_collection.sort_by{|plate| plate.date_by_day}.each do |plate|
+      %li
+        %p= plate.proposed_content
+%small
+  Collected based on data from: 
+  = link_to "https://github.com/datanews/license-plates", "https://github.com/datanews/license-plates"

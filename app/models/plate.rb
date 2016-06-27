@@ -1,8 +1,11 @@
 class Plate < ActiveRecord::Base
-  attr_reader :date, :proposed_content
-  
-  def initialize(date, proposed_content)
-    @date = date.to_datetime
-    @proposed_content = proposed_content
+  class << self
+    def group_by_date
+      grouped_plates = all.group_by{ |plate| plate.date.strftime("%B") }
+    end
+  end
+
+  def date_by_day
+    date.strftime("%d")
   end
 end

@@ -5,7 +5,7 @@ class PlateTextImporter
       plate = plate.split(",")
       plate_date = plate[0]
       plate_contents = plate[1]
-      Plate.new(plate_date, plate_contents)
+      Plate.find_or_create_by(date: plate_date, proposed_content: plate_contents)
     end
   end
 end

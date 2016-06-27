@@ -1,3 +1,5 @@
 class PlatesController < ApplicationController
-  def index ; end
+  def index
+    @plates = Plate.all
+  end
 end

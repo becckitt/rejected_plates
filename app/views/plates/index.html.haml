@@ -1,8 +1,11 @@
 %h1.page-header Rejected Plates
+.plates-graph
+  %h3 Frequency of requests by month
+  %svg.frequency-by-month-chart
 .plates-container
-  - @plates.group_by_date.each do |month, plate_collection|
+  - @plates.group_by_month.each do |month, plate_collection|
     .month-card
-      %h2= month
+      %h2= Date::MONTHNAMES[month.to_i]
       %h3= "(#{plate_collection.size} total plates)"
       %ul
         - plate_collection.sort_by{|plate| plate.date_by_day}.each do |plate|
@@ -11,3 +14,52 @@
   %small
     Collected based on data from: 
     = link_to "https://github.com/datanews/license-plates", "https://github.com/datanews/license-plates"
+
+:javascript
+  // create bar chart
+  var width = 400,
+      height = 300;
+  var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+  var y = d3.scale.linear()
+          .range([height, 0]);
+  var chart = d3.select(".frequency-by-month-chart")
+      .attr("width", width)
+      .attr("height", height);
+
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom");
+
+  d3.json('/api/plates', function(data) {
+    x.domain(data.map(function(d) { return d.month; }));
+    y.domain([0, d3.max(data, function(d) { return d.count })]);
+
+    var barWidth = width/data.length;
+
+    var bar = chart.selectAll("g")
+        .data(data)
+      .enter().append("g")
+        .attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
+
+    bar.append("rect")
+        .attr("y", function(d) { return y(d.count); })
+        .attr("height", function(d) {return height - y(d.count); })
+        .attr("width", x.rangeBand());
+
+    bar.append("text")
+        .attr("x", 2)
+        .attr("y", function(d) {return height - d.count - 30; })
+        .attr("dy", ".75em")
+        .text(function(d) { return d.month.slice(0,3); });
+    bar.append("text")
+        .attr("x", 2)
+        .attr("y", function(d) {return height - 30; })
+        .attr("dy", ".75em")
+        .text(function(d) { return d.count; });
+  });
+
+  function type(d) {
+    d.count = +d.count;
+    return d;
+  }

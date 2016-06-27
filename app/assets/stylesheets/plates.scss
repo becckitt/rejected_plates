@@ -32,3 +32,22 @@ small {
   text-align: center;
   margin-top: $largeSpacing;
 }
+
+.plates-graph {
+  padding-bottom: $mediumSpacing;
+  margin-bottom: $largeSpacing;
+  width: 25%;
+  max-width: 400px;
+
+  h3 {
+    text-align: center;
+  }
+}
+
+svg.frequency-by-month-chart rect {
+  fill: aqua;
+}
+
+svg.frequency-by-month-chart text {
+  fill: fuchsia;
+}

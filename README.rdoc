@@ -2,5 +2,5 @@
 
 Made possible thanks to the data at: https://github.com/datanews/license-plates
 
---> http://rejected-license-plates.heroku-app.com/plates <--
+--> https://rejected-license-plates.herokuapp.com/plates <--
 

@@ -1,7 +1,11 @@
 class Plate < ActiveRecord::Base
   class << self
     def group_by_date
-      grouped_plates = all.group_by{ |plate| plate.date.strftime("%B") }
+      all.group_by{ |plate| plate.date.strftime("%B") }
+    end
+
+    def plates_content
+      all.collect { |plate| plate.proposed_content }
     end
   end
 

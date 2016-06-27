@@ -1,3 +1,34 @@
-// Place all the styles related to the plates controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.page-header {
+  font-family: 'VT323', 'Inconsolata', 'Courier', monospace;
+  font-size: $largeFont;
+  width: 100%;
+  text-align: center;
+}
+
+.plates-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.month-card {
+  flex-basis: 1;
+  flex-grow: 1;
+  width: 25%;
+  height: 300px;
+  text-align: center;
+
+  ul {
+    @include auto-center-margins;
+    width: 80%;
+    max-width: 200px;
+    height: 180px;
+    overflow: scroll;
+  }
+}
+
+small {
+  width: 100%;
+  text-align: center;
+  margin-top: $largeSpacing;
+}

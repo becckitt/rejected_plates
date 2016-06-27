@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160624135450) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "plates", force: :cascade do |t|
     t.datetime "date"
     t.string   "proposed_content"

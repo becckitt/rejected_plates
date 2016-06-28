@@ -31,8 +31,8 @@ $(function() {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   d3.json('/api/plates/bad', function(data) {
-    x.domain(data.map(function(d) { return d.date; }));
-    y.domain([d3.min(data, function(d) { return d.proposed_content.length; }) - 1, d3.max(data, function(d) { return d.proposed_content.length; })]);
+    x.domain(d3.extent(data, function(d) { return d.date; }));
+    y.domain(d3.extent(data, function(d) { return d.proposed_content.length; }));
 
     chart.append("g")
           .attr("class", "y axis")

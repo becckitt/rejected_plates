@@ -21,14 +21,9 @@ class Plate < ActiveRecord::Base
       restructured_plates
     end
 
-    def proposed_content_array 
-      all.pluck(:proposed_content)
-    end
-
     def matching_plate_text(regex_pattern)
       regex_pattern = regex_pattern.upcase
-      regex_matches = proposed_content_array.select{ |text| text.match(regex_pattern) }
-      regex_matches.empty? ? proposed_content_array : regex_matches
+      all.select { | plate | plate.proposed_content.match(regex_pattern) }
     end
   end
 

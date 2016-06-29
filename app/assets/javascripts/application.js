@@ -13,4 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require angular
+//= require angular-rails-templates
+//= require frequency_by_month_chart
+//= require frequency_of_phrase_chart
+
+// Add Angular dependencies
+//= require angular_components/models/app
+//= require_tree ./angular_components/custom_filters
+//= require_tree ../templates
+//= require angular_components/month_card

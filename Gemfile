@@ -27,6 +27,10 @@ gem 'haml-rails'
 
 gem 'pry'
 
+gem 'angularjs-rails'
+# allow for easier linking of templates in directives
+gem 'angular-rails-templates'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

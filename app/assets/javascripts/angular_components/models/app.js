@@ -1,0 +1,1 @@
+var rpApp = angular.module("rpApp", ['templates']);

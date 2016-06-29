@@ -1,0 +1,5 @@
+%h2 {{ label | monthName }}
+%h3 ({{ group.length }} total plates)
+%ul
+  %li(ng-repeat="plate in group")
+    %p {{ plate.proposed_content }}

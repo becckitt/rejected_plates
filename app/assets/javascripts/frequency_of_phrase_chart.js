@@ -5,7 +5,6 @@ $(function() {
 
   var formatDate = function(d) {
     var dateFormatted = new Date(d.date);
-    console.log(d.date);
     return dateFormatted;
   };
 

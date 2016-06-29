@@ -2,3 +2,15 @@
   fill: $fuckThat;
   stroke: $blue;
 }
+
+phrase-chart input {
+  color: black;
+  font-family: 'Inconsolata';
+  text-transform: uppercase;
+  border: $fuckThat;
+  border-bottom: $pink 2px solid;
+  font-weight: 600;
+  font-size: 17px;
+  width: 75px;
+  text-align: center;
+}

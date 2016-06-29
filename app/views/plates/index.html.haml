@@ -12,7 +12,4 @@
 .plates-container(ng-controller= "monthCardController")
   .month-card(ng-repeat= "(month, plate_collection) in months")
     %month-card{label: "month", group: "plate_collection"}
-  %small
-    Collected based on data from: 
-    = link_to "https://github.com/datanews/license-plates", "https://github.com/datanews/license-plates"
   

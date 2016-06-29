@@ -1,0 +1,15 @@
+.month-card {
+  @include flex-basis(1);
+  @include flex-grow(1);
+  width: 25%;
+  height: 300px;
+  text-align: center;
+
+  ul {
+    @include auto-center-margins;
+    width: 80%;
+    max-width: 200px;
+    height: 180px;
+    overflow: scroll;
+  }
+}

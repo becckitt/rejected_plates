@@ -16,8 +16,10 @@
  @import 'variables';
  @import 'mixins';
  @import 'bourbon_flexbox';
- @import 'plates';
+ @import 'plates_index';
  @import url(https://fonts.googleapis.com/css?family=Inconsolata|VT323);
+ @import 'components/*';
+ @import 'charts/*';
 
 body {
   font-family: 'Inconsolata', 'Courier New', 'Courier', monospace;
@@ -32,4 +34,10 @@ ul {
 li {
   padding-left: 0;
   list-style: none;
+}
+
+footer {
+  text-align: center;
+  width: 100%;
+  margin-top: $largeSpacing;
 }

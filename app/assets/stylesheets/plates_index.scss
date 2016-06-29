@@ -1,0 +1,12 @@
+.page-header {
+  font-family: 'VT323', 'Inconsolata', 'Courier', monospace;
+  font-size: $largeFont;
+  width: 100%;
+  text-align: center;
+}
+
+.plates-container {
+  @include display(flex);
+  @include justify-content(flex-start);
+  @include flex-wrap(wrap);
+}

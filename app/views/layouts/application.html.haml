@@ -8,3 +8,8 @@
     = csrf_meta_tags
   %body(ng-app="rpApp")
     = yield
+    
+    %footer
+      %small
+        Collected based on data from: 
+        = link_to "https://github.com/datanews/license-plates", "https://github.com/datanews/license-plates"

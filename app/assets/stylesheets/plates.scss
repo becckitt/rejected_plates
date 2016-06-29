@@ -63,6 +63,10 @@ svg.frequency-by-month-chart {
   .domain {
     fill: #ffffff;
   }
+
+  .x.axis path {
+    display: none;
+  }
 }
 
 .axis {
@@ -76,6 +80,7 @@ svg.frequency-by-month-chart {
   shape-rendering: crispEdges;
 }
 
-.x.axis path {
-  display: none;
+.frequency-of-phrase-chart .line {
+  fill: none;
+  stroke: cyan;
 }

@@ -3,7 +3,11 @@ $(function() {
       width = 400 - margin.left - margin.right,
       height = 300 - margin.top - margin.bottom;
 
-  var formatDate = d3.time.format("%d-%b-%y");
+  var formatDate = function(d) {
+    var dateFormatted = new Date(d.date);
+    console.log(d.date);
+    return dateFormatted;
+  };
 
   var x = d3.time.scale()
       .range([0, width]);
@@ -13,7 +17,9 @@ $(function() {
 
   var xAxis = d3.svg.axis()
       .scale(x)
-      .orient("bottom");
+      .orient("bottom")
+      .ticks(7)
+      .tickFormat(d3.time.format('%b %y'));
 
   var yAxis = d3.svg.axis()
       .scale(y)
@@ -21,7 +27,7 @@ $(function() {
       .ticks(5);
 
   var line = d3.svg.line()
-        .x(function(d) { return x(d.date); })
+        .x(function(d) { return x(new Date(d.date)); })
         .y(function(d) { return y(d.proposed_content.length); });
 
   var chart = d3.select(".frequency-of-phrase-chart")
@@ -31,8 +37,8 @@ $(function() {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   d3.json('/api/plates/bad', function(data) {
-    x.domain(d3.extent(data, function(d) { return d.date; }));
-    y.domain(d3.extent(data, function(d) { return d.proposed_content.length; }));
+    x.domain(d3.extent(data, function(d) { return new Date(d.date); }));
+    y.domain([0,10]);
 
     chart.append("g")
           .attr("class", "y axis")
@@ -56,8 +62,7 @@ $(function() {
   });
 
   function type(d) {
-    var newDate = new Date(d.date);
-    d.date = formatDate.parse(newDate);
+    d.date = new Date(d.date);
     d.proposed_content.length = +d.proposed_content.length;
     return d;
   }

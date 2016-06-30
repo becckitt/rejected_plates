@@ -95,6 +95,11 @@ rpApp.directive('phraseChart', function() {
                 .attr("class", "line")
                 .attr("d", line);
 
+          chart.append("text")
+                .attr("class", "total-count")
+                .attr("x", "100")
+                .text(data.length + " total plates");
+
           // Tooltips
           chart.selectAll("dot")
                 .data(data)
@@ -108,7 +113,7 @@ rpApp.directive('phraseChart', function() {
                       .style("opacity", .9);
                   div.html(d.proposed_content + "<br>" + new Date(d.date).toLocaleDateString())
                       .style("left", (d3.event.pageX) + "px")
-                      .style("top", (d3.event.pageY - 45) + "px");
+                      .style("top", (d3.event.pageY - 43) + "px");
                 })
                 .on("mouseout", function(d) {
                   div.transition()

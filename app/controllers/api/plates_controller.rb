@@ -15,8 +15,6 @@ class Api::PlatesController < Api::BaseController
     # 69
     # dtf
     # pusy|pus|vag|pss
-    # ADD: a place to search for a phrase and show matching plates
-      # Make line graph charting all occurences over time, dynamic/searchable
 
     page = Plate.matching_plate_text(params[:id])
     render json: page
@@ -24,6 +22,11 @@ class Api::PlatesController < Api::BaseController
 
   def plates_by_month
     page = Plate.all.group_by_month
+    render json: page
+  end
+
+  def frequency_by_character
+    page = Plate.character_frequency
     render json: page
   end
 end

@@ -25,10 +25,18 @@ class Plate < ActiveRecord::Base
       regex_pattern = regex_pattern.upcase
       all.select { | plate | plate.proposed_content.match(regex_pattern) }
     end
+
+    def character_frequency
+      sorted_characters.chunk{|char| char.ord }.collect{|char, count| { character: char.chr, count: count.length} }
+    end
+
+    def sorted_characters
+      all.pluck(:proposed_content).collect{|text| text.split("")}.flatten.sort
+    end
   end
 
   def date_by_month
-    self.date.strftime("%m")
+    date.strftime("%m")
   end
 
   def date_by_day

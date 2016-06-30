@@ -1,10 +1,10 @@
 %h1.page-header >> Rejected Plates <<
-.charts(ng-controller= "phraseChartController")
+.charts
   .plates-graph
     %h3 Frequency of requests by month
     %svg.frequency-by-month-chart
-  .plates-graph
-    %phrase-chart{phrases: "phrases", query: "query"}
+  .plates-graph(ng-controller= "phraseChartController")
+    %phrase-chart{query: "query"}
   .plates-graph
     %h3 ¯\_(ツ)_/¯
     %svg.shrugz

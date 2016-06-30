@@ -1,6 +1,25 @@
-.frequency-of-phrase-chart .line {
-  fill: $fuckThat;
-  stroke: $blue;
+.frequency-of-phrase-chart {
+  .line {
+    fill: $fuckThat;
+    stroke: $blue;
+  }
+  circle {
+    fill: $blue;
+    stroke: $white;
+  }
+}
+
+div.tooltip { 
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  height: 20px;
+  padding: 2px;
+  font: $smallFont 'Inconsolata', monospace;
+  background: $white;
+  border: solid 1px $pink;
+  pointer-events: none;
+  padding: 10px;
 }
 
 phrase-chart input {
@@ -11,6 +30,11 @@ phrase-chart input {
   border-bottom: $pink 2px solid;
   font-weight: 600;
   font-size: 17px;
-  width: 75px;
+  width: 70px;
+  text-align: center;
+}
+
+.total-count {
+  width: 100%;
   text-align: center;
 }

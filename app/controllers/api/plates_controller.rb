@@ -21,7 +21,12 @@ class Api::PlatesController < Api::BaseController
   end
 
   def plates_by_month
-    page = Plate.all.group_by_month
+    page = Plate.group_by_month
+    render json: page
+  end
+
+  def plates_by_year
+    page = Plate.group_by_year
     render json: page
   end
 

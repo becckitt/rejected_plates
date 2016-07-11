@@ -4,6 +4,10 @@ class Plate < ActiveRecord::Base
       all.sort_by(&:date_by_month).group_by(&:date_by_month)
     end
 
+    def group_by_year
+      all.sort_by(&:date_by_year).group_by(&:date_by_year)
+    end
+
     def plates_content
       all.collect { |plate| plate.proposed_content }
     end
@@ -31,8 +35,28 @@ class Plate < ActiveRecord::Base
     end
 
     def sorted_characters
-      all.pluck(:proposed_content).collect{|text| text.split("")}.flatten.sort
+      all_proposed_content.collect{|text| text.split("")}.flatten.sort
     end
+
+    def all_proposed_content
+      all.pluck(:proposed_content)
+    end
+
+    def sorted_characters_by_combination
+      character_combinations = []
+      all_proposed_content.each do |text|
+        text = text.size.even? ? text : text[0..(text.size-1)]
+        characters = text.split("")
+        while characters.size > 0
+          character_combinations << characters.slice!(0,2)
+        end
+      end
+      character_combinations
+    end
+  end
+
+  def date_by_year
+    date.strftime("%Y")
   end
 
   def date_by_month

@@ -6,9 +6,9 @@
   .plates-graph(ng-controller= "phraseChartController")
     %phrase-chart{query: "query"}
   .plates-graph
-    %h3 ¯\_(ツ)_/¯
-    %svg.shrugz
+    %h3 Frequency of characters
+    %svg.frequency-by-character
 .plates-container(ng-controller= "monthCardController")
-  .month-card(ng-repeat= "(month, plate_collection) in months")
-    %month-card{label: "month", group: "plate_collection"}
+  .month-card(ng-repeat= "item in monthArray | orderBy:'monthKey'")
+    %month-card{label: "item.monthKey", group: "item.plate_collection"}
   

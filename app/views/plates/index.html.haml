@@ -12,6 +12,7 @@
     .plates-graph
       %h3.frequency-by-character-header Frequency of characters
       %svg.frequency-by-character
+  %h2.plates-container-header All plates
   .plates-container(ng-controller= "monthCardController")
     .month-card(ng-repeat= "item in monthArray | orderBy:'monthKey'")
       %month-card{label: "item.time", group: "item.content"}

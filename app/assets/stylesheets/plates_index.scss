@@ -40,6 +40,19 @@
   padding-right: $smallSpacing;
 }
 
+.plates-container-header {
+  text-align: center;
+  font-size: $mediumFont;
+  font-family: 'VT323', 'Inconsolata', 'monospace';
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border-bottom: dashed 4px rgba(0,0,0,.1);
+  width: 100%;
+  padding-top: $smallSpacing;
+  padding-bottom: $smallSpacing;
+  margin: 0 auto $sectionSpacing auto;
+}
+
 .plates-container {
   @include display(flex);
   @include justify-content(flex-start);

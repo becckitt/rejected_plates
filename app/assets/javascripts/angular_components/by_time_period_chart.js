@@ -57,7 +57,7 @@ rpApp.directive('timePeriodChart', ['$filter', function($filter) {
               .attr("class", "tooltip")
               .style("opacity", 0);
               
-      var chart = d3.select(".frequency-by-month-chart")
+      var chart = d3.select(".frequency-by-time-period-chart")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom)
         .append("g")
@@ -89,14 +89,14 @@ rpApp.directive('timePeriodChart', ['$filter', function($filter) {
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + height + ")")
                 .call(xAxis);
-          
+          var barOffset = 7;
           // Create graph bars
           var bar = chart.selectAll(".bar")
               .data(data)
             .enter().append("rect")
               .attr("class", "bar")
-              .attr("x", function(d) { return x(d.time); })
-              .attr("width", x.rangeBand())
+              .attr("x", function(d) { return x(d.time) + barOffset; })
+              .attr("width", x.rangeBand() - barOffset)
               .attr("y", function(d) { return y(d.content.length); })
               .attr("height", function(d) { return height - y(d.content.length); });
           

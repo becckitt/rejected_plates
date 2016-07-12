@@ -1,0 +1,16 @@
+div.tooltip { 
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  height: auto;
+  font: $smallFont 'Inconsolata', monospace;
+  background: $white;
+  border: solid 1px $pink;
+  pointer-events: none;
+  padding: 8px;
+}
+
+div.blue-tooltip {
+  @extend .tooltip;
+  border: solid 1px $cyan;
+}

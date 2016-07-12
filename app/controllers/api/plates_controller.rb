@@ -20,6 +20,11 @@ class Api::PlatesController < Api::BaseController
     render json: page
   end
 
+  def plates_by_day
+    page = Plate.group_by_day
+    render json: page
+  end
+
   def plates_by_month
     page = Plate.group_by_month
     render json: page

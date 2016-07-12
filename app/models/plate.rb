@@ -1,5 +1,9 @@
 class Plate < ActiveRecord::Base
   class << self
+    def group_by_day
+      group_by_time_period(:date_by_day)
+    end
+
     def group_by_month
       group_by_time_period(:date_by_month)
     end
@@ -72,6 +76,6 @@ class Plate < ActiveRecord::Base
   end
 
   def date_by_day
-    date.strftime("%d")
+    date.strftime("%d%m%Y")
   end
 end

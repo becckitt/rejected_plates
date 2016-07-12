@@ -12,4 +12,14 @@
     height: 180px;
     overflow: scroll;
   }
+
+  &:after {
+    content: '<- ->';
+    position: absolute;
+    color: fuchsia;
+    margin-top: -110px;
+    margin-left: 63px;
+    font-family: 'VT323';
+    transform: rotate(90deg);
+  }
 }

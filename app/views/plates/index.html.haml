@@ -1,14 +1,16 @@
 %h1.page-header >> Rejected Plates <<
-.charts
-  .plates-graph
-    %h3 Frequency of requests by month
-    %svg.frequency-by-month-chart
-  .plates-graph(ng-controller= "phraseChartController")
-    %phrase-chart{query: "query"}
-  .plates-graph
-    %h3.frequency-by-character-header Frequency of characters
-    %svg.frequency-by-character
-.plates-container(ng-controller= "monthCardController")
-  .month-card(ng-repeat= "item in monthArray | orderBy:'monthKey'")
-    %month-card{label: "item.monthKey", group: "item.plate_collection"}
-  
+.page-header-invisible
+.content-body
+  .charts
+    .plates-graph
+      %h3 Frequency of requests by month
+      %svg.frequency-by-month-chart
+    .plates-graph(ng-controller= "phraseChartController")
+      %phrase-chart{query: "query"}
+    .plates-graph
+      %h3.frequency-by-character-header Frequency of characters
+      %svg.frequency-by-character
+  .plates-container(ng-controller= "monthCardController")
+    .month-card(ng-repeat= "item in monthArray | orderBy:'monthKey'")
+      %month-card{label: "item.monthKey", group: "item.plate_collection"}
+    

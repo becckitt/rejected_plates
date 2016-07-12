@@ -1,8 +1,26 @@
 .page-header {
   font-family: 'VT323', 'Inconsolata', 'Courier', monospace;
   font-size: $largeFont;
-  width: 100%;
   text-align: center;
+  background: linear-gradient( 0deg, rgba(0, 255, 255, 0.23), rgba(255, 0, 255, 0.25) );
+  padding: $largeSpacing $mediumSpacing;
+  margin-top: 0;
+  margin-bottom: $largeSpacing;
+  position: fixed;
+  width: 95%;
+  z-index: -10;
+}
+
+.page-header-invisible {
+  height: 200px;
+  width: 100%;
+  opacity: 0;
+}
+
+.content-body {
+  z-index: 10;
+  background: white;
+  padding-top: 80px;
 }
 
 .plates-container {

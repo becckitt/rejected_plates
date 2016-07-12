@@ -9,19 +9,6 @@
   }
 }
 
-div.tooltip { 
-  position: absolute;
-  text-align: center;
-  width: 60px;
-  height: 20px;
-  padding: 2px;
-  font: $smallFont 'Inconsolata', monospace;
-  background: $white;
-  border: solid 1px $pink;
-  pointer-events: none;
-  padding: 10px;
-}
-
 phrase-chart input {
   color: black;
   font-family: 'Inconsolata';

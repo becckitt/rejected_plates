@@ -22,6 +22,10 @@ $(function() {
       .scale(y)
       .orient("left")
       .ticks(5);
+
+  var div = d3.select("body").append("div")
+          .attr("class", "tooltip")
+          .style("opacity", 0);
           
   var chart = d3.select(".frequency-by-month-chart")
       .attr("width", width + margin.left + margin.right)
@@ -67,6 +71,20 @@ $(function() {
         .attr("y", function(d) { return height - 30; })
         .attr("dy", ".75em")
         .text(function(d) { return d.count; });
+    // Tooltip settings
+    bar.on("mouseover", function(d) {
+            div.transition()
+                .duration(100)
+                .style("opacity", .9);
+            div.html("<b>" + d.month + "</b>" + ": " + d.count)
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY) + "px");
+          })
+          .on("mouseout", function(d) {
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
+          });
   });
 });
 

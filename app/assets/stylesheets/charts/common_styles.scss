@@ -1,3 +1,15 @@
+.plates-graph {
+  padding-bottom: $mediumSpacing;
+  margin-bottom: $largeSpacing;
+  width: 33%;
+  max-width: 400px;
+
+  h3 {
+    text-align: center;
+    margin-bottom: $mediumSpacing;
+  }
+}
+
 .charts {
   @include display(flex);
   @include justify-content(space-between);
@@ -17,4 +29,22 @@
 
 svg text {
   fill: $pink;
+}
+
+div.tooltip { 
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  height: 20px;
+  padding: 2px;
+  font: $smallFont 'Inconsolata', monospace;
+  background: $white;
+  border: solid 1px $pink;
+  pointer-events: none;
+  padding: 10px;
+}
+
+div.blue-tooltip {
+  @extend .tooltip;
+  border: solid 1px $cyan;
 }

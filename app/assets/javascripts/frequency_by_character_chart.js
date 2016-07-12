@@ -8,7 +8,7 @@ $(function() {
     .range(["white", "fuchsia"]);
 
   // Variables
-  var squareLength = 20,
+  var squareLength = 25,
       xAxisVal = 0,
       yAxisVal = 50;
 
@@ -16,10 +16,10 @@ $(function() {
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
-      .attr("transform", "translate(" + ((width/2) - margin.left - margin.right - 10) + "," + margin.top + ")");
+      .attr("transform", "translate(" + (margin.left * 2) + "," + margin.top + ")");
 
   var div = d3.select("body").append("div")
-          .attr("class", "tooltip")
+          .attr("class", "blue-tooltip")
           .style("opacity", 0);
   d3.json('/api/frequency_by_character', function(data) {
     chart.append("g")
@@ -33,7 +33,7 @@ $(function() {
             if (i%10 == 0) {
               xAxisVal = 0;
             } else {
-              xAxisVal += 20;
+              xAxisVal += squareLength;
             }
             return xAxisVal; 
           })
@@ -61,5 +61,13 @@ $(function() {
                 .duration(500)
                 .style("opacity", 0);
           });
+
+    var mostUsedChar = data.reduce(function(firstChar, secondChar, index) { if (index === 0) { return secondChar }; return firstChar.count > secondChar.count ? firstChar : secondChar }, null);
+    var leastUsedChar = data.reduce(function(firstChar, secondChar, index) { if (index === 0) { return secondChar }; return firstChar.count < secondChar.count ? firstChar : secondChar }, null);
+
+    chart.append("text")
+          .attr("class", "max-character")
+          .attr("x", "5")
+          .text("Most: " + mostUsedChar.character + " (" + mostUsedChar.count + " times) // " + "Least: " + leastUsedChar.character + " (" + leastUsedChar.count + " times)");
   });
 });

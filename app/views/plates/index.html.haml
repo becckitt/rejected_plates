@@ -1,12 +1,12 @@
 .main-header
   .fixed-header
     %h1.page-header >> Rejected Plates <<
-    %p A collection of rejected license plates, from 2011-2014
+    %p A collection of rejected license plates, from 2010-2014
   .page-header-invisible
 .content-body
   .charts
     .plates-graph(ng-controller="submissionsByTimePeriodController")
-      %submissions-by-time-period-graph(info="cool")
+      %time-period-chart{options: "options", "time-period": "timePeriod"}
     .plates-graph(ng-controller= "phraseChartController")
       %phrase-chart{query: "query"}
     .plates-graph

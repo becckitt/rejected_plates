@@ -15,7 +15,6 @@
 //= require turbolinks
 //= require angular
 //= require angular-rails-templates
-//= require frequency_by_month_chart
 //= require frequency_by_character_chart
 
 // Add Angular dependencies

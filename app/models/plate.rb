@@ -1,11 +1,19 @@
 class Plate < ActiveRecord::Base
   class << self
     def group_by_month
-      all.sort_by(&:date_by_month).group_by(&:date_by_month)
+      group_by_time_period(:date_by_month)
     end
 
     def group_by_year
-      all.sort_by(&:date_by_year).group_by(&:date_by_year)
+      group_by_time_period(:date_by_year)
+    end
+
+    def group_by_time_period(time_period)
+      test = {}
+      grouped_items = all.sort_by(&:"#{time_period}").group_by(&:"#{time_period}")
+      grouped_items.collect do |key, plates|
+        {time: key, content: plates}
+      end
     end
 
     def plates_content

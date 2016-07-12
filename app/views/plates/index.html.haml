@@ -14,5 +14,5 @@
       %svg.frequency-by-character
   .plates-container(ng-controller= "monthCardController")
     .month-card(ng-repeat= "item in monthArray | orderBy:'monthKey'")
-      %month-card{label: "item.monthKey", group: "item.plate_collection"}
+      %month-card{label: "item.time", group: "item.content"}
     

@@ -11,11 +11,7 @@ rpApp.directive('monthCard', function() {
 
 rpApp.controller('monthCardController', ['$scope', 'platesByMonth', function($scope, platesByMonth) {
   platesByMonth.success(function(data) {
-    $scope.monthArray = Object.keys(data)
-      .map(function(key) {
-        return {monthKey: parseInt(key), plate_collection: data[key]};
-      });
-
+    $scope.monthArray = data;
   });
 }]);
 

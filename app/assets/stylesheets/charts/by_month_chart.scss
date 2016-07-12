@@ -1,3 +1,13 @@
+h3 select {
+  border: none;
+  background: white;
+  font-family: 'Inconsolata', 'Courier New', 'Courier', monospace;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: -6px;
+  color: $pink;
+}
+
 .frequency-by-month-chart {
   rect {
     fill: $blue;

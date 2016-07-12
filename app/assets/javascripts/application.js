@@ -24,3 +24,4 @@
 //= require_tree ../templates
 //= require angular_components/month_card
 //= require angular_components/by_phrase_chart
+//= require angular_components/by_time_period_chart

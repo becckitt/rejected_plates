@@ -5,9 +5,8 @@
   .page-header-invisible
 .content-body
   .charts
-    .plates-graph
-      %h3 Frequency of requests by month
-      %svg.frequency-by-month-chart
+    .plates-graph(ng-controller="submissionsByTimePeriodController")
+      %submissions-by-time-period-graph(info="cool")
     .plates-graph(ng-controller= "phraseChartController")
       %phrase-chart{query: "query"}
     .plates-graph
